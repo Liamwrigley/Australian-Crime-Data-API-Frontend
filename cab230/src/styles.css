@@ -1,0 +1,236 @@
+body * {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/*====================================LOGIN PAGE====================================*/
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(
+    45deg,
+    rgba(66, 183, 245, 0.8) 0%,
+    rgba(66, 245, 189, 0.4) 100%
+  );
+}
+
+.form-container {
+  width: 30%;
+  min-width: 320px;
+  height: 40%;
+  min-height: 500px;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #000000aa;
+}
+
+.form-container .RHS-strip {
+  position: absolute;
+  height: 100%;
+  width: 35px;
+  right: 0;
+  background-color: #4285f4;
+}
+
+.form-content {
+  height: 100%;
+  padding: 2em 5em;
+}
+
+.form-container h1 {
+  margin-bottom: 1em;
+  width: auto;
+  text-align: left;
+}
+.form-container form {
+  /* padding: 0px 10em; */
+}
+
+.form-container form input {
+  outline: none;
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-width: 0px 0px 2px 0px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: light;
+  line-height: inherit;
+  transition: 0.3s ease;
+  margin-bottom: 1em;
+  cursor: text !important;
+  transition: 0ms border-color linear;
+}
+.form-container form input:last-of-type {
+  margin-bottom: 2em;
+}
+.form-container form input:focus {
+  border-color: #4285f4;
+}
+
+.form-container form button {
+  display: inline-block;
+  margin: 0px 30px 0px;
+  outline: none;
+  background: #4285f4;
+  width: auto;
+  border-width: 0px 0px 0px 0px;
+  border-color: transparent;
+  border-radius: 4px;
+  padding: 12px 20px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  cursor: pointer !important;
+  transition: all 50ms linear;
+}
+
+.form-container form button:hover {
+  box-shadow: 0px 0px 15px #4285f4;
+}
+
+.result-message {
+  margin-top: 2em;
+}
+
+.result-message .login-fault {
+  border-top: 1px solid red;
+}
+
+.result-message .login-success {
+  border-top: 1px solid green;
+}
+
+/*====================================LOGIN PAGE====================================*/
+/*========================================END=======================================*/
+
+/*====================================DATA PAGE====================================*/
+.main-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(
+    45deg,
+    rgba(66, 183, 245, 0.8) 0%,
+    rgba(66, 245, 189, 0.4) 100%
+  );
+}
+
+.main-container .header {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  background: #fff;
+  box-shadow: 0px 0px 10px #000000aa;
+}
+
+.main-container .header .RHS-strip {
+  position: absolute;
+  height: 100%;
+  width: 35px;
+  right: 0;
+  background-color: #4285f4;
+}
+
+.main-container .header h1 {
+  margin: 0px;
+  line-height: 80px;
+  height: 80px;
+}
+
+.main-container .header button {
+  display: inline-block;
+  margin: 0px 30px 0px;
+  outline: none;
+  background: #4285f4;
+  width: auto;
+  border-width: 0px 0px 0px 0px;
+  border-color: transparent;
+  border-radius: 4px;
+  padding: 12px 20px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  cursor: pointer !important;
+  transition: all 50ms linear;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 80px;
+}
+
+.main-container .header button:hover {
+  box-shadow: 0px 0px 15px #4285f4;
+}
+
+.content-container {
+  width: 90%;
+  min-width: 320px;
+  margin: 4em auto 2em;
+}
+
+.data-container {
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #000000aa;
+  padding: 2em;
+}
+
+.data-container table th {
+  font-size: 1.2em;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #4285f4;
+}
+
+.data-container table tbody tr {
+  text-align: left;
+}
+
+.data-container table tbody tr:nth-child(2n-1) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.rsdt.rsdt-sortable-icon:after {
+  cursor: pointer;
+  font-family: "Font Awesome 5 Free";
+  content: "\f0dc";
+}
+
+.rsdt.rsdt-sortable-asc:after {
+  cursor: pointer;
+  font-family: "Font Awesome 5 Free";
+  content: "\f0de";
+}
+
+.rsdt.rsdt-sortable-desc:after {
+  cursor: pointer;
+  font-family: "Font Awesome 5 Free";
+  content: "\f0dd";
+}
+
+/*====================================DATA PAGE====================================*/
+/*========================================END======================================*/
