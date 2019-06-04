@@ -25,4 +25,4 @@ TODO:
 Finish auth on /search endpoint
 Add comma seperated queries on /search endpoint
 
-**NOTE - server fetch requests are currently set to CAB230 API for testing
+**NOTE - client fetch requests are currently set to CAB230 API for testing
