@@ -38,7 +38,6 @@ export default function Login(props) {
   }
 
   function register() {
-    console.log("reg");
     fetch("https://cab230.hackhouse.sh/register", {
       method: "POST",
       body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(
@@ -69,7 +68,6 @@ export default function Login(props) {
   }
 
   function auth() {
-    console.log("auth");
     fetch("https://cab230.hackhouse.sh/login", {
       method: "POST",
       body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(
@@ -89,7 +87,6 @@ export default function Login(props) {
         }
       })
       .then(function(result) {
-        console.log(result);
         if (result.token) {
           localStorage.setItem("token", result.token);
           props.onLogin(result.token);

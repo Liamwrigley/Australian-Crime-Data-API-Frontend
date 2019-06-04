@@ -1,15 +1,16 @@
 {
-  "name": "showcase-temp",
+  "name": "cab230-client",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "google-map-react": "^1.1.4",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-scripts": "2.1.8",
     "react-select": "2.4.3",
-    "react-smart-data-table": "0.7.0"
+    "react-smart-data-table": "^0.7.0"
   },
   "devDependencies": {
     "typescript": "3.3.3"

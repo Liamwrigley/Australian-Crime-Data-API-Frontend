@@ -18,7 +18,6 @@ export default function Dropdown(props) {
   }
 
   useEffect(() => {
-    console.log("getting new data");
     getDropdownData(props);
   }, [props.type]);
 
@@ -30,29 +29,26 @@ export default function Dropdown(props) {
     let items = dropdownData;
     let optionItems = items.map(items => <option key={items}>{items}</option>);
     return (
-      <div>
-        <select
-          onChange={event => {
-            props.onQuerySelect(encodeURIComponent(event.target.value));
-          }}
-        >
-          {optionItems}
-        </select>
-      </div>
+      <select
+        onChange={event => {
+          props.onQuerySelect(encodeURIComponent(event.target.value));
+        }}
+      >
+        <option value="">{props.type}</option>
+        {optionItems}
+      </select>
     );
   } else if (props.type === "months") {
     let items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     let optionItems = items.map(items => <option key={items}>{items}</option>);
     return (
-      <div>
-        <select
-          onChange={event => {
-            props.onQuerySelect(encodeURIComponent(event.target.value));
-          }}
-        >
-          {optionItems}
-        </select>
-      </div>
+      <select
+        onChange={event => {
+          props.onQuerySelect(encodeURIComponent(event.target.value));
+        }}
+      >
+        {optionItems}
+      </select>
     );
   }
 }

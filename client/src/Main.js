@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-//https://www.npmjs.com/package/react-smart-data-table
 import SmartDataTable from "react-smart-data-table";
 import Dropdown from "./Dropdown";
+import GoogleMapReact from 'google-map-react'
+
 
 export default function Main(props) {
   const [data, setData] = useState([]);
@@ -16,6 +17,8 @@ export default function Main(props) {
   const [yearQuery, setYearQuery] = useState("");
   const [monthQuery, setMonthQuery] = useState("");
 
+  const [dataView, setDataView] = useState("table");
+
   function removeToken(props) {
     localStorage.removeItem("token");
     props.onLogout();
@@ -29,7 +32,6 @@ export default function Main(props) {
 
     //The URL
     const url = `https://cab230.hackhouse.sh/search?offence=${offenceQuery}&area=${areaQuery}&age=${ageQuery}&gender=${genderQuery}&year=${yearQuery}&month=${monthQuery}`;
-    console.log(url);
 
     return fetch(url, getParam)
       .then(res => {
@@ -45,12 +47,43 @@ export default function Main(props) {
       });
   }
 
+//try to make into own component
   function Offences(props) {
     const tableData = [];
     for (let i in props.data) {
       tableData.push({ "": props.data[i] });
     }
     return <SmartDataTable data={tableData} name="Offences" sortable />;
+  }
+
+//try to make into own component
+  function Map(props) {
+    const apiKey = {key:'AIzaSyDpLzQn7ouCLSPrTYBWILG8AJ8l7NyILi4'};
+    const positions = [];
+
+    useEffect(() => {
+      for (let i in props.data) {
+        if (props.data[i].total > 0) {
+          positions.push({
+            lat: props.data[i].lat,
+            lng: props.data[i].lng,
+            weight: props.data[i].total
+          });
+        }
+      }
+    }, [props.data]);
+
+    return (
+      <div className='map-container'>
+        <GoogleMapReact
+          bootstrapURLKeys={apiKey}
+          defaultCenter={props.defaultCenter}
+          defaultZoom={props.defaultZoom}
+          heatmap={{positions}}
+          heatmapLibrary={true}
+        />
+      </div>
+    )
   }
 
   useEffect(() => {
@@ -86,7 +119,25 @@ export default function Main(props) {
           <Dropdown type={"months"} onQuerySelect={setMonthQuery} />
         </div>
         <div className="data-container">
-          <Offences data={data} />
+        <button
+        onClick={event => {
+          setDataView("table");
+        }}
+        >
+        table
+        </button>
+        <button
+          onClick={event => {
+            setDataView("map");
+          }}
+        >
+          map
+        </button>
+          {dataView === "table" ? (
+            <Offences data={data} />
+          ): (
+            <Map defaultCenter={{lat: -25.41, lng: 135.32}} defaultZoom={5} data={data} />
+          )}
         </div>
       </div>
     </div>
