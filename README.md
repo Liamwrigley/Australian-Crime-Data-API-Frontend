@@ -12,7 +12,7 @@ Ability to fetch from different endpoints, sort data within columns.
 ### TODO: 
  - Add styling for dropdowns
  - Finish styling on main page and responsiveness
- -Add line graph to represent data in visual format.
+ - Add line graph to represent data in visual format.
 
 ## TASK - backend 
 Create backend API using MySQL, node.js and express.
